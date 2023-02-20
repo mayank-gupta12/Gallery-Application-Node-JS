@@ -1,0 +1,42 @@
+<%- include("header")%>
+  <a href="/" class="fs-3 text-justify text-black  text-decoration-none my-5">
+    < Back</a>
+      <div class="d-flex container w-100 flex-wrap mt-5 pt-5 mb-5 justify-content-center align-items-center ">
+
+        <div class="card mt-5 mb-3 border border-0" style="margin-top:400px;">
+          <div class="d-flex">
+            <div class="row g-0">
+              <div class="card-img-top d-flex align-items-end :cardimg border border-0"
+                style="height: 400px; border: none; width: 300px; background-image:url('/uploads/<%= card.image%>'); background-position:center; background-size: cover; background-repeat: no-repeat;">
+              </div>
+            </div>
+            <div class="col-md-8 ">
+              <div class="card-body container ">
+                <form action="/update/<%= card.id%>" method="post" enctype="multipart/form-data">
+                  <h2 class="container"></h2>
+                  <input type="text" class="form-control mb-3 fs-5" placeholder="Card Title" value="<%= card.title%>"
+                    name="title">
+                  <input type="text" class="form-control mb-3 fs-5" placeholder="Author Name" value="<%= card.author%>"
+                    name="author">
+                  <div class="d-flex">
+                    <input type="file" class="form-control mb-4 fs-5 uploadfile" placeholder="No file chosen"
+                      name="gallery">
+                    <img class="preview" width="100px" height="150px" src="/uploads/<%= card.image%>" alt="">
+                  </div>
+                  <input type="hidden" name="oldgallery" value="<%= card.image%>">
+                  <button class="btn btn-success fs-5">Update</button>
+                  <a class="btn btn-danger fs-5" href="/delete/<%= card.id%>">Delete</a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          const uploadfile = document.querySelector(".uploadfile");
+          const preview = document.querySelector(".preview");
+          uploadfile.addEventListener("change", function (e) {
+            preview.src = URL.createObjectURL(e.target.files[0])
+            console.log(e.target.files[0])
+          });
+        </script>
+        <%- include("footer")%>

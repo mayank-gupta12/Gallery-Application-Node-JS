@@ -1,0 +1,14 @@
+<%- include("header")%>
+
+<%- include("nav")%>
+
+
+<form class="container w-50" action="/add" method="post" enctype="multipart/form-data">
+    <h2 class="mb-2 mt-5 container">Add Image</h2>
+        <input type="text" class="form-control mb-3 fs-5" placeholder="Card Title" name="title">
+        <input type="text" class="form-control mb-3 fs-5" placeholder="Author Name" name="author">
+        <input type="file" class="form-control mb-3 fs-5" placeholder="No file chosen" name="gallery">
+        <button class="btn btn-success fs-5">Add To Gallery</button>
+    </form>
+
+<%- include("footer")%>
