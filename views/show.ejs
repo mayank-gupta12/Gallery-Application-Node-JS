@@ -1,12 +1,11 @@
 <%- include("header")%>
-
 <%- include("nav")%>
 <div class="d-flex container w-100 bg-succes flex-wrap bg-inf pb-4"> 
 <% if(cards.length === 0){%>
   <h1 class="m-auto mt-5 text-info"> No Images</h1>
   <%}%>
 <% cards.forEach(function(card){ %>
-  <div class="card mb-3 me-3 "  style="width: 18rem;">
+  <div class="card mb-3 me-2"  style="width: 18rem;">
     <div class="card-img-top d-flex align-items-end :cardimg" style="height: 500px; background-image:url('/uploads/<%= card.image%>'); background-position:center; background-size: cover; background-repeat: no-repeat;">
     <div class="card-body">
       <h5 class="card-title"> <a href="/update/<%= card.id%>" class="text-decoration-none text-white fs-3"> <%= card.title%></a></title></h5>
@@ -17,6 +16,4 @@
 </div>
 <% })%>
 </div>
-
 <%- include("footer")%>
-
